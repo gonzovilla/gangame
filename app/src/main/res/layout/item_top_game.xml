@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="topGame"
+            type="com.cyclopsdev.gangame.TopGame"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="126dp"
+        app:cardBackgroundColor="@color/colorPrimary">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgThumb"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:imageUrl="@{topGame.thumb}"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25"/>
+
+            <TextView
+                android:id="@+id/labelTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:maxLines="2"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@{topGame.title}"
+                app:layout_constraintEnd_toStartOf="@+id/labelPrice"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Silence of the sleep"/>
+
+            <TextView
+                android:id="@+id/labelSteamRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_steam_rating"
+                android:drawablePadding="4dp"
+                android:textColor="@color/blue_gray"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@{String.valueOf(topGame.steamRating)}"
+                app:layout_constraintStart_toStartOf="@+id/labelPublisher"
+                app:layout_constraintTop_toBottomOf="@+id/labelPublisher"
+                tools:text="50"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5"/>
+
+            <TextView
+                android:id="@+id/labelPublisher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/blue_gray"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:text="@{topGame.publisher}"
+                app:layout_constraintStart_toStartOf="@+id/labelTitle"
+                app:layout_constraintTop_toBottomOf="@+id/labelTitle"
+                tools:text="Valve"/>
+
+            <TextView
+                android:id="@+id/labelOwners"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawableStart="@drawable/ic_owners"
+                android:drawablePadding="4dp"
+                android:textColor="@color/blue_gray"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@{String.valueOf(topGame.owners)}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/labelSteamRating"
+                app:layout_constraintStart_toEndOf="@+id/labelSteamRating"
+                tools:text="1390812309812"/>
+
+            <TextView
+                android:id="@+id/labelPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@{topGame.priceFormatted}"
+                app:layout_constraintBottom_toBottomOf="@+id/labelTitle"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toTopOf="@+id/labelTitle"
+                tools:text="$100.00"/>
+
+            <TextView
+                android:id="@+id/labelPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@{String.valueOf(topGame.position)}"
+                app:layout_constraintBottom_toTopOf="@+id/guideline3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toTopOf="@+id/guideline3"
+                tools:text="1"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>
